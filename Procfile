@@ -1,1 +1,1 @@
-web: yarn start:production
+web: yarn start:python3 bot.py
