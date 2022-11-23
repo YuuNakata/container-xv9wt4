@@ -97,11 +97,12 @@ async def down_torrent(link, msg, path, args):
     try:
         fingerprint = lt.fingerprint("qB", 3, 3, 5, 0)
         ses = lt.session(fingerprint)
-        ses.listen_on(6881, 6891)
+        ses.start_dht()
         ses.add_dht_router("router.bittorrent.com", 6881)
         ses.add_dht_router("router.utorrent.com", 6881)
-        ses.add_dht_router("dht.aelitis.com", 6881)
+        ses.add_dht_router("router.bitcomet.com", 6881)
         ses.add_dht_router("dht.transmissionbt.com", 6881)
+        ses.listen_on(6881, 6891)
         sett = {
             "allow_multiple_connections_per_ip": True,
             # "dont_count_slow_torrents": True,
@@ -113,7 +114,6 @@ async def down_torrent(link, msg, path, args):
         ses.apply_settings(sett)
         params = {
             "save_path": f"{path}",
-            "storage_mode": lt.storage_mode_t(2),
         }
         handle = lt.add_magnet_uri(ses, link, params)
         await msg.edit(pd.format("Analizando Torrent", "Downloading Metadata...", "Analizando Torrent"))
