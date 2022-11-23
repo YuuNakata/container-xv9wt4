@@ -1,1 +1,1 @@
-APP_NAME = "tamagobot.herokuapp.com"
+APP_NAME = "tamagobot.fly.dev"

@@ -8,7 +8,7 @@ multivolumefile
 telethon
 moviepy
 sqlalchemy
-psycopg2
+psycopg2-binary
 nest_asyncio
 yt_dlp
 telethon-tgcrypto

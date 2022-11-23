@@ -19,31 +19,37 @@ from PIL import Image
 from shazamio import Shazam
 from telethon import Button, TelegramClient, events
 from telethon import utils as t_utils
-from telethon.tl.types import (DocumentAttributeAudio,
-                               DocumentAttributeFilename,
-                               DocumentAttributeVideo,
-                               InputMediaUploadedDocument,
-                               MessageMediaDocument)
+from telethon.tl.types import (
+    DocumentAttributeAudio,
+    DocumentAttributeFilename,
+    DocumentAttributeVideo,
+    InputMediaUploadedDocument,
+    MessageMediaDocument,
+)
 
 from downloader import downloader
 from downloader.trackers import download_url, unzip_file, zip_file
-from downloader.utils import (async_task_maker, cancel_maker, check_files,
-                              get_dir_size, get_file_size, progress,
-                              sizeof_fmt)
+from downloader.utils import async_task_maker, cancel_maker, check_files, get_dir_size, get_file_size, progress, sizeof_fmt
 from mega_def import mega as mega_d
 from TamaBD import DBHelper
 from to_async import to_async
-from users.users_temp import (clear_users_selected, get_users_callback,
-                              get_users_copy, get_users_path,
-                              get_users_selected, get_users_yutulist,
-                              set_users_callback, set_users_copy,
-                              set_users_path, set_users_selected,
-                              set_users_yutulist)
+from users.users_temp import (
+    clear_users_selected,
+    get_users_callback,
+    get_users_copy,
+    get_users_path,
+    get_users_selected,
+    get_users_yutulist,
+    set_users_callback,
+    set_users_copy,
+    set_users_path,
+    set_users_selected,
+    set_users_yutulist,
+)
 from utils import youtube_info
 from utils.callback_helper import CallBack_Helper
 from utils.FastTelethon import upload_file
-from utils.func_utils import (cut_video, get_fileslist, make_button,
-                              manage_tel_connects)
+from utils.func_utils import cut_video, get_fileslist, make_button, manage_tel_connects
 from utils.used_strings import hlp, pd, pd_2, pf
 from vars import APP_NAME
 
@@ -130,7 +136,7 @@ async def ping_server(URL):
         if "herokuapp" in URL:
             while True:
                 await asyncio.sleep(1500)
-                for _ in range(10):
+                for i in range(10):
                     try:
                         async with AsyncClient() as client:
                             await client.get(URL)
