@@ -1,1 +1,1 @@
-APP_NAME = "tamagobot.fly.dev"
+APP_NAME = "tamagobot.onrender.com"
