@@ -133,16 +133,15 @@ async def get_live_time():
 
 async def ping_server(URL):
     try:
-        if "herokuapp" in URL:
-            while True:
-                await asyncio.sleep(1500)
-                for i in range(10):
-                    try:
-                        async with AsyncClient() as client:
-                            await client.get(URL)
-                        break
-                    except:
-                        pass
+        while True:
+            await asyncio.sleep(800)
+            for i in range(10):
+                try:
+                    async with AsyncClient() as client:
+                        await client.get(URL)
+                    break
+                except:
+                    pass
 
     except:
         traceback.print_exc()
