@@ -1,1 +1,1 @@
-APP_NAME = "tamagobot-soap.koyeb.app"
+APP_NAME = "tamagobot.fly.dev"
