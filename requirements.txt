@@ -1,3 +1,5 @@
+wheel
+setuptools
 ujson
 httpx==0.23.0
 httpx[http2]
